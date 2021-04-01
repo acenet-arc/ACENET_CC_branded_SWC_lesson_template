@@ -1,4 +1,64 @@
-[![Website Check Status](https://github.com/carpentries/lesson-example/workflows/Website/badge.svg)](https://github.com/carpentries/lesson-example/actions/workflows/website.yml?query=workflow%3AWebsite)
+## Creating a new lesson from ACENET's template
+1. Create new github repo with new lesson name e.g. ACENET_Sumer_School_Dask</li>
+2. create new repo with same name
+~~~
+$ mkdir ACENET_Sumer_School_Dask
+$ cd ACENET_Sumer_School_Dask
+$ git init
+~~~
+3. add github repo as remote
+~~~
+$ git remote add origin https://github.com/acenet-arc/ACENET_Sumer_School_Dask.git
+~~~
+4. add git remote for lesson template
+~~~
+$ git remote add template https://github.com/acenet-arc/ACENET_CC_branded_SWC_lesson_template.git
+~~~
+5. pull down the template
+~~~
+$ git pull template gh-pages
+~~~
+6. rename the default master branch to `gh-pages`. Not strictly needed but keeps things consistent.
+~~~
+$ git branch -m gh-pages
+~~~
+
+7. Now start modifying creating/modifying episodes in the `_episodes` directory
+
+8. When you are happy you can push those up to the github repo for the new lesson
+~~~
+$ git push origin gh-pages
+~~~
+
+## Updating from SWC lesson example
+This template will need to be periodically updated to bring in changes/improvements made on the SWC lesson template this was forked from.
+TODO: write section detailing how to do this
+
+## Updating the styles repo to keep it up-to-date with SWC
+
+## Updating an ACENET lesson
+When the [ACENET_CC_branded_SWC_lesson_style](https://github.com/acenet-arc/ACENET_CC_branded_SWC_lesson_style) repo is updated lessons should be updated from it by merging it in.
+
+On your working git repository for the lesson to be updated: 
+
+1. Check to see if you already have the style repository
+~~~
+$ git remote -v
+~~~
+~~~
+origin  https://github.com/acenet-arc/ACENET_Sumer_School_Dask.git (fetch)
+origin  https://github.com/acenet-arc/ACENET_Sumer_School_Dask.git (push)
+style   https://github.com/acenet-arc/ACENET_CC_branded_SWC_lesson_style.git (fetch)
+style   https://github.com/acenet-arc/ACENET_CC_branded_SWC_lesson_style.git (push)
+~~~
+If you do as is shown above, there is nothing else to do. Proceed to step 2. If not you will need to add it with the below command:
+~~~
+$ git remote add style https://github.com/acenet-arc/ACENET_CC_branded_SWC_lesson_style.git
+~~~
+2. Now merge the changes to the style into your repository.
+~~~
+$ git pull style gh-pages
+~~~
 
 lesson-example
 ==============
